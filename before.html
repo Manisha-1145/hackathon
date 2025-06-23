@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panorama Viewer</title>
+    <script src="https://cdn.pannellum.org/2.5/pannellum.js"></script> <!--Pannellum JavaScript library (to make 360° image view).-->
+    <link rel="stylesheet" href="https://cdn.pannellum.org/2.5/pannellum.css"><!--stylesheet for Pannellum view.-->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+            height: 100vh;
+            position: relative;
+            
+        }
+
+        h2 {
+            margin: 20px 0 10px;
+            text-align: center;
+        }
+
+        #panorama {
+            width: 100%;
+            max-width: 100%;
+            height: 540px;
+            border-radius: 8px;
+            box-shadow: rgb(58, 173, 58);
+            
+        }
+
+        .convert-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            padding: 10px 25px;
+            font-size: 16px;
+            border: none;
+            background-color: #24830c;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <h2>360° Viewer</h2>
+
+    <div id="panorama"></div>
+    <button class="convert-btn" onclick="goToConverted()">Convert</button>
+
+    <script>
+        const viewer = pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "my_pano.jpg",  // First image
+            "autoLoad": true
+        });
