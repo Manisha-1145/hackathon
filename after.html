@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Converted Panorama</title>
+    <script src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
+    <link rel="stylesheet" href="https://cdn.pannellum.org/2.5/pannellum.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+            height: 100vh;
+            position: relative;
+        }
+
+        h2 {
+            margin: 20px 0 10px;
+            text-align: center;
+        }
+
+        #converted-panorama {
+            width: 100%;
+            max-width: 100%;
+            height: 540px;
+            border-radius: 8px;
+        }
+        .convert-btn {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            padding: 10px 25px;
+            font-size: 16px;
+            border: none;
+            background-color: #24830c;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Converted 360° viewer</h2>
+
+    <div id="converted-panorama"></div>
+     <button class="convert-btn" onclick="goToConverted()">Back</button>
+    <script>
+        const viewer = pannellum.viewer('converted-panorama', 
+        {
+            "type": "equirectangular",
+            "panorama": "pano.jpg",  // Second image
+            "autoLoad": true
+        });
+         function goToConverted() {
+            window.location.href = "before.html"; // Go to next page
+        }
+    </script>
+</body>
+</html>
+
