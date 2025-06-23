@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*{
+    box-sizing: border-box;/* box bhitra lekheko aauxa yelle*/
+    font-family:Verdana, Geneva, Tahoma, sans-serif;/*yo chai font chnage garya sabai ko*/
+}
+
+body{/* whole body*/
+    background-color: #c9ffee; /*yesle whole page ko background control garxa*/
+    background: linear-gradient(to right, #cbedd6, #cbedd6); /*yesle whole page ko background control garxa*/
+    display:flex; /*yo bhayne bhane tyo box top left corner ma janxa.*/
+    align-items: center; /*yo bhayena bhane box left ma janxa. it bring the box in middle*/
+    justify-content: center;/*yo bhayena bhane box middle ko mathi aauxa*/
+    flex-direction: column; /*yo chai top to bottom rakhna ho. it is used cuz of display flex*/
+    height: 100vh; /*this also same as justify content*/
+}
+
+.container{
+    background-color: #fff;/*welcome ko curve baira ko bg color*/
+    border-radius: 10px;/*box ko roundness*/
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+.container p{/*note wala*/
+    font-size: 14.5px; /* tyo note ko font change garxa*/
+    line-height: 22px;/* note ko height chnage garxa*/
+    letter-spacing: 0.2px; /* space management*/
+    margin: 25px 0; /*welcome wala ani button lai note bata space dinxa*/
+}
+
+.container button{/*sign in/up*/
+    background-color: #34bbd0;/*button ko color */
+    color: #fff;/*sign in haru lai white banauxa*/
+    padding: 10px 45px;/*box banaune*/
+    border: 0.5px solid transparent;/*border ko thickness is 0.5 and transparet le chai border dekhaudaina*/
+    border-radius: 20px;/*box ko shape*/
+    font-weight: 800;/*font change hanne*/
+    letter-spacing: 1.5px;/*letter ko bich ma space dinxa*/
+    margin-top: 25px;/*yelle chai space control garxa*/
+    cursor: pointer;/*yelle chai sign in or up button ma cursor lagda hand wala aauxa*/
+}
+
+.container button.hidden{/*toggle hune wala part*/
+    background-color: transparent;/*sign up wala ko bg color transparent garxa jasle garda gradient dekhxa*/
+    border-color: #fff;/*sign up wala ko border ko color*/
+}
+
+.container form{/*sign in wala part*/
+    background-color: #fff;/*sign in wala ko bg change hanne*/
+    display: flex;/*child element lai horizontally rakhxa*/
+    align-items: center;/*sign in wala text lai bicha ma lyauxa ani sign in button lai milauxa*/
+    justify-content: center;/*sign in haru lai bicha ma lyauxa*/
+    flex-direction: column;/*sign in wala lao column lai layuxa*/
+    padding: 0 43px;/*email password ko box ko length milaune*/
+    height: 100%;/* sign in wala lai bicha ma lyauxa*/
+}
+
+.container input{/*register ki login garne box ko css*/
+    background-color: #e1e1e1;/*box ko color*/
+    border: none;
+    margin: 8px 0;/*each box ko bich ma margin maintain hanxa*/
+    padding: 9.5px 17px;/*box ko size*/
+    font-size: 13px;
+    border-radius: 19px;
+    width: 95%;
+}
+
+.form-container{/*toggle hune wala box n its transition*/
+    position: absolute;
+    height: 100%;
+    transition: all 0.6s ease-in-out;/*smooth transition ko lagi*/
+}
+
+.sign-in{/*register wala page ko*/
+    width: 50%;
+    z-index: 2;/*yelle chai users lai dekhauxa ani jun ko value dherai xa tei dekhauxa users lai paila*/
+}
+
+.container.active .sign-in{
+    transform: translateX(100%);/*x-axix ma 100% slide garxa*/
+   
+}
+
+.sign-up{
+    z-index: 1;
+    width: 50%;
+}
+
+.container.active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+@keyframes move{
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.toggle-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
+
+.container.active .toggle-container{
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+
+.toggle{
+    background-color: #54cd8d;
+    height: 100%;
+    background: linear-gradient(to left, #85db8b, #64a8ed);
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle{
+    transform: translateX(50%);
+}
+
+.toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle-left{ /*hello friend wala */
+    background: linear-gradient(to left, #64a8ed, #85db8b);
+}
+
+.toggle-right{/* welcome back wala*/
+    right: 0;/*it is used to place the element*/
+    background: linear-gradient(to left, #85db8b, #64a8ed);
+}
